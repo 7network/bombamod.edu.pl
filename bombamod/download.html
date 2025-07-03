@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7Network.Fun - Download</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .tutorial {
+            display: none;
+            background: #232a36;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            padding: 1.2rem;
+            color: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        }
+        .tutorial.visible {
+            display: block;
+        }
+        .download-btn, .tutorial-btn {
+            margin-top: 1.2rem;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>7Network.Fun</h1>
+        <div style="text-align:center; margin-bottom:1.2rem;">
+            <strong>Nazwa pliku:</strong><br>
+            7Network-Bombamod-1.20.1
+        </div>
+        <a href="https://bombamod.edu.pl/bombamod/7Network-Bombamod-1.20.1.zip" class="download-btn" download target="_blank">
+            <button style="width:100%;">Pobierz</button>
+        </a>
+        <button class="tutorial-btn" id="show-tutorial">Tutorial</button>
+        <div class="tutorial" id="tutorial-box">
+            <h2>Jak korzystać z moda?</h2>
+            <ol>
+                <li>Wypakuj plik <b>7Network-Bombamod-1.20.1.zip</b> i wrzuć zawartość do folderu <b>.minecraft/mods</b></li>
+                <li>Uruchom Minecrafta z odpowiednim profilem Forge/Fabric</li>
+                <li>W grze wpisz komendę:<br><code>/zaloguj LICENCJA</code></li>
+                <li>W ustawieniach sterowania (Controls) zmień przycisk wyszukiwania według własnych preferencji</li>
+            </ol>
+        </div>
+    </div>
+    <script>
+    // Sprawdzenie cookies
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+    if (!getCookie('license_access')) {
+        window.location.href = 'index.html';
+    }
+    // Obsługa tutoriala
+    document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('show-tutorial');
+        const box = document.getElementById('tutorial-box');
+        btn.addEventListener('click', function() {
+            box.classList.toggle('visible');
+        });
+    });
+    </script>
+</body>
+</html>
